@@ -1,7 +1,7 @@
 {
   "name": "Horizon Importer (CSV/JSON)",
   "details": "Free, no-server, CSV/JSON importer for Trello.",
-  "icon": "https://amineloop.github.io/trello-json-import/icon.png",
+  "icon": "https://github.com/amineloop/trello-json-import/blob/main/icon.png?raw=true",
   "author": "Aminelabs",
   "capabilities": {
     "board-buttons": [

@@ -5,7 +5,7 @@ const Promise = TrelloPowerUp.Promise;
 TrelloPowerUp.initialize({
   'board-buttons': function (t, opts) {
     return [{
-      icon: 'https://amineloop.github.io/trello-json-import/icon.png',
+      icon: 'https://github.com/amineloop/trello-json-import/blob/main/icon.png?raw=true',
       text: 'Import CSV/JSON',
       callback: function (t) {
         return t.popup({

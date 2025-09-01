@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Import CSV/JSON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
+  <script defer src="./import.js"></script>
+</head>
+<body>
+  <main class="container">
+    <h2>Import CSV/JSON → Trello</h2>
+
+    <section class="card">
+      <h3>1) Trello API Credentials</h3>
+      <div class="grid">
+        <label>API Key
+          <input id="apiKey" type="text" placeholder="Your Trello API key" />
+        </label>
+        <label>Token
+          <input id="apiToken" type="text" placeholder="Your Trello token (write scope)" />
+        </label>
+      </div>
+      <div class="row">
+        <button id="btnGenToken" class="secondary">Get Token…</button>
+        <button id="btnSaveCreds">Save</button>
+        <span id="authStatus" class="muted"></span>
+      </div>
+      <p class="muted">Token scope required: <code>read,write</code>. Expiration: <code>never</code> recommandé.</p>
+    </section>
+
+    <section class="card">
+      <h3>2) File</h3>
+      <input id="fileInput" type="file" accept=".csv,application/json" />
+      <details>
+        <summary>Expected columns (CSV)</summary>
+        <ul>
+          <li><b>List</b> — List name (created if missing)</li>
+          <li><b>Card</b> — Card title</li>
+          <li><b>Description</b> — Card description (optional)</li>
+          <li><b>Labels</b> — Comma-separated label names (optional). Missing labels are created.</li>
+        </ul>
+      </details>
+      <div class="grid">
+        <label><input id="createLists" type="checkbox" checked /> Create missing lists</label>
+        <label><input id="createLabels" type="checkbox" checked /> Create missing labels</label>
+      </div>
+      <div class="row">
+        <button id="btnImport" disabled>Import</button>
+        <span id="progress" class="muted"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Log</h3>
+      <ul id="log"></ul>
+    </section>
+  </main>
+</body>
+</html>
